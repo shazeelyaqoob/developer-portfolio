@@ -2,6 +2,8 @@
 
 An animated developer portfolio: a Three.js particle world that morphs through a scroll-driven story, a pinned horizontal work reel, service rows, a scroll-lit about statement and a contact section.
 
+Live demo: https://shazeelyaqoob.github.io/developer-portfolio/
+
 - Four colour themes (Scarlet, Dark Sunset, Paper Red, Sunset)
 - English, Spanish, Urdu and Arabic (with RTL support)
 - No build step: open `index.html` in a browser
