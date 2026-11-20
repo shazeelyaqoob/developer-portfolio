@@ -1,0 +1,300 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Developer Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="overrides.css">
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"></div>
+<div class="cur-ring" aria-hidden="true"></div>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="row">
+    <div class="count"><b id="ldNum">000</b><span>%</span></div>
+    <div class="lab mono" data-i18n="loading">Loading the world</div>
+  </div>
+  <div class="bar"><b id="ldBar"></b></div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" data-go="intro"><span class="mark">YN</span><span class="txt">Your Name<small data-i18n="hero_role">Full-stack developer</small></span></a>
+    <div class="tools">
+      <div class="swatches" role="group" aria-label="Theme" id="swatches"></div>
+      <div class="langsel">
+        <label class="sr" for="lang">Language</label>
+        <select id="lang">
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+          <option value="ur">اردو</option>
+          <option value="ar">عربي</option>
+        </select>
+      </div>
+      <a class="btn sm solid magnetic" href="#contact" data-go="contact" data-i18n="talk">Let's talk</a>
+    </div>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <span class="n"><b id="railNum">00</b> / 05</span>
+  <span class="line"><b id="railBar"></b></span>
+</div>
+
+<main id="top">
+  <!-- Story -->
+  <section class="story" id="story">
+    <span class="anc" id="process" style="top:100vh"></span>
+    <div class="pin">
+      <div class="dial" id="dial" aria-hidden="true">
+        <svg viewBox="-100 -100 200 200"><g id="ticks"></g><circle class="arc" id="arc" r="96" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" transform="rotate(-90)"/></svg>
+        <div class="lbl mono" id="dialLbl"></div>
+      </div>
+
+      <div class="chap c0" data-c="0">
+        <div class="who mono fade"><span class="dot"></span><span data-i18n="hero_avail">Available for new projects</span></div>
+        <h1 class="split" data-i18n-html="hero_t">Code that <em>feels alive.</em></h1>
+        <p class="fade" data-i18n="hero_p">I design and build fast websites, stores and web apps. You work with me directly, from the first sketch to launch day.</p>
+        <div class="ctas fade">
+          <a class="btn solid magnetic" href="#contact" data-go="contact"><span data-i18n="cta1">Start a project</span><span class="arr">→</span></a>
+          <a class="btn ghost magnetic" href="#work" data-go="work"><span data-i18n="cta2">View work</span></a>
+        </div>
+      </div>
+      <div class="chap c1" data-c="1">
+        <span class="k mono fade"><i></i>01 · <span data-i18n="ch1_k">Reach</span></span>
+        <div class="counter fade"><span id="cnt">0</span><sup>+</sup></div>
+        <h2 class="split" data-i18n-html="ch1_t">Projects shipped across <em>9 countries.</em></h2>
+        <p class="fade" data-i18n="ch1_p">Stores, SaaS products and web apps that are live and earning for their owners.</p>
+      </div>
+      <div class="chap c2" data-c="2">
+        <span class="k mono fade"><i></i>02 · <span data-i18n="ch2_k">Idea</span></span>
+        <h2 class="split" data-i18n-html="ch2_t">Every build starts as <em>a rough idea.</em></h2>
+        <p class="fade" data-i18n="ch2_p">We talk for 30 minutes. I ask the right questions and turn your idea into a clear plan.</p>
+      </div>
+      <div class="chap c3" data-c="3">
+        <span class="k mono fade"><i></i>03 · <span data-i18n="ch3_k">Design</span></span>
+        <h2 class="split" data-i18n-html="ch3_t">Then it becomes <em>screens you can click.</em></h2>
+        <p class="fade" data-i18n="ch3_p">You see and test every screen before any code is written.</p>
+      </div>
+      <div class="chap c4" data-c="4">
+        <span class="k mono fade"><i></i>04 · <span data-i18n="ch4_k">Build</span></span>
+        <h2 class="split" data-i18n-html="ch4_t">Then it's built <em>piece by piece.</em></h2>
+        <p class="fade" data-i18n="ch4_p">Short cycles, a preview link after each one, and clean code another developer can pick up.</p>
+      </div>
+      <div class="chap c5" data-c="5">
+        <span class="k mono fade"><i></i>05 · <span data-i18n="ch5_k">Launch</span></span>
+        <h2 class="split" data-i18n-html="ch5_t">Then it goes live, <em>and keeps running.</em></h2>
+        <p class="fade" data-i18n="ch5_p">Hosting, analytics, backups and monitoring are set up from day one.</p>
+      </div>
+
+      <div class="hint" id="hint"><span class="mouse"></span><span class="mono" data-i18n="scroll">Scroll to explore</span></div>
+    </div>
+  </section>
+
+  <!-- Work reel -->
+  <section class="reel" id="work">
+    <div class="pin2">
+      <div class="track" id="track">
+        <div class="panel-intro">
+          <span class="k mono" data-i18n="work_k">Selected work</span>
+          <h2 data-i18n="work_t">Featured projects</h2>
+          <p data-i18n="work_note">Example projects. Replace them with your own.</p>
+          <div class="prog"><span id="reelNum">01 / 03</span><span class="l"><b id="reelBar"></b></span></div>
+        </div>
+
+        <article class="card" data-cursor="drag">
+          <div class="in">
+            <div class="shot">
+              <span class="num">01</span>
+              <div class="ui">
+                <div class="bar"><i></i><i></i><i></i><span></span></div>
+                <div class="body">
+                  <div class="ln a" style="width:34%"></div><div class="ln" style="width:58%"></div>
+                  <div class="grid3"><div class="prod"></div><div class="prod"></div><div class="prod"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3>Northline Coffee</h3><span class="t mono" data-i18n="w1_m">E-commerce · 2026</span>
+              <p data-i18n="w1_d">Headless Shopify store with a custom checkout. Page load dropped from 4.1s to 1.3s.</p>
+              <div class="tags"><span>Next.js</span><span>Shopify</span><span>Stripe</span><span>Vercel</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cursor="drag">
+          <div class="in">
+            <div class="shot">
+              <span class="num">02</span>
+              <div class="ui">
+                <div class="bar"><i></i><i></i><i></i><span></span></div>
+                <div class="body">
+                  <div class="ln a" style="width:28%"></div>
+                  <div class="cal">
+                    <b></b><b class="y"></b><b></b><b class="x"></b><b></b><b></b><b class="y"></b>
+                    <b class="x"></b><b></b><b></b><b class="y"></b><b></b><b class="x"></b><b></b>
+                    <b></b><b class="y"></b><b class="x"></b><b></b><b></b><b class="y"></b><b></b>
+                    <b class="y"></b><b></b><b></b><b class="x"></b><b></b><b></b><b class="x"></b>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3>Harbor Clinic</h3><span class="t mono" data-i18n="w2_m">Web app · 2025</span>
+              <p data-i18n="w2_d">Patients book and pay online. Staff manage the calendar from one dashboard.</p>
+              <div class="tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cursor="drag">
+          <div class="in">
+            <div class="shot">
+              <span class="num">03</span>
+              <div class="ui">
+                <div class="bar"><i></i><i></i><i></i><span></span></div>
+                <div class="body">
+                  <div class="kpis"><div class="kpi"><b>12.4k</b><div class="ln"></div></div><div class="kpi"><b>98%</b><div class="ln a"></div></div><div class="kpi"><b>3.2h</b><div class="ln"></div></div></div>
+                  <div class="chart">
+                    <b style="--h:40%;--d:0"></b><b style="--h:62%;--d:1"></b><b style="--h:48%;--d:2"></b><b class="a" style="--h:86%;--d:3"></b><b style="--h:70%;--d:4"></b><b style="--h:58%;--d:5"></b><b class="a" style="--h:95%;--d:6"></b><b style="--h:76%;--d:7"></b>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3>Freightline Ops</h3><span class="t mono" data-i18n="w3_m">Dashboard · 2025</span>
+              <p data-i18n="w3_d">Pulls orders from three systems into one live view, replacing a weekly manual report.</p>
+              <div class="tags"><span>Vue</span><span>Supabase</span><span>n8n</span></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="panel-end">
+          <h3 data-i18n="more_t">Want to see more, or something like this for you?</h3>
+          <a class="btn solid magnetic" href="#contact" data-go="contact"><span data-i18n="cta1">Start a project</span><span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="sec pad" id="services">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="k mono"><i></i><span data-i18n="svc_k">Services</span></span>
+        <h2 data-i18n="svc_t">What I can build for you</h2>
+      </div>
+      <div class="svc-list">
+        <div class="svc rv"><span class="n">/01</span><h3 data-i18n="s1_t">Marketing sites &amp; landing pages</h3><p data-i18n="s1_d">Fast on mobile, easy to find on Google, and built to get visitors to contact you.</p><span class="go">↗</span></div>
+        <div class="svc rv"><span class="n">/02</span><h3 data-i18n="s2_t">Online stores</h3><p data-i18n="s2_d">Catalog, cart, payments and shipping, with a simple panel for managing orders.</p><span class="go">↗</span></div>
+        <div class="svc rv"><span class="n">/03</span><h3 data-i18n="s3_t">Web apps &amp; dashboards</h3><p data-i18n="s3_d">Client portals, internal tools and reports that connect to the systems you already use.</p><span class="go">↗</span></div>
+        <div class="svc rv"><span class="n">/04</span><h3 data-i18n="s4_t">SaaS products</h3><p data-i18n="s4_d">Sign-up, plans and recurring billing. We start small so you can validate fast.</p><span class="go">↗</span></div>
+        <div class="svc rv"><span class="n">/05</span><h3 data-i18n="s5_t">APIs &amp; integrations</h3><p data-i18n="s5_d">I connect your site to CRMs, payment gateways, ERPs and third-party services.</p><span class="go">↗</span></div>
+        <div class="svc rv"><span class="n">/06</span><h3 data-i18n="s6_t">Automations</h3><p data-i18n="s6_d">Emails, spreadsheets and notifications that run on their own and save you hours each week.</p><span class="go">↗</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="mq" aria-label="Tools">
+    <div class="lab mono" data-i18n="stack_k">Tools I use</div>
+    <div class="row a" id="mqA"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Three.js</span><span>Shopify</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Three.js</span><span>Shopify</span></div>
+    <div class="row b" id="mqB"><span>PostgreSQL</span><span>Supabase</span><span>Tailwind</span><span>Vercel</span><span>AWS</span><span>Figma</span><span>PostgreSQL</span><span>Supabase</span><span>Tailwind</span><span>Vercel</span><span>AWS</span><span>Figma</span></div>
+  </div>
+
+  <!-- About -->
+  <section class="sec pad" id="about">
+    <div class="wrap">
+      <div class="sec-head rv" style="margin-bottom:48px">
+        <span class="k mono"><i></i><span data-i18n="about_k">About</span></span>
+      </div>
+      <p class="big" id="big" data-i18n="about_big">I keep things simple: a small stack, honest timelines and code that is easy to maintain. I have spent six years building for the web, for local shops and for startups.</p>
+      <div class="exp">
+        <span class="k mono" style="color:var(--accent)" data-i18n="exp_k">Experience</span>
+        <ul>
+          <li class="rv"><b data-i18n="e1">Lead developer</b><span>Studio Name</span><time>2023 — 2026</time></li>
+          <li class="rv"><b data-i18n="e2">Full-stack developer</b><span>Freelance</span><time>2020 — 2023</time></li>
+          <li class="rv"><b data-i18n="e3">Frontend developer</b><span>Agency Name</span><time>2019 — 2020</time></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="k mono rv" data-i18n="contact_k">Contact</span>
+      <h2 class="split" id="ctTitle" data-i18n-html="contact_t">Have an idea? <em>Let's ship it.</em></h2>
+      <p class="sub rv" data-i18n="contact_p">Tell me what you need. I reply within one working day.</p>
+      <div class="row rv">
+        <button class="orb magnetic" type="button" id="orb" data-i18n="cta1">Start a project</button>
+        <div class="mail"><code id="email">hello@yourname.dev</code><button class="btn sm" type="button" id="copy" data-i18n="copy">Copy</button></div>
+      </div>
+      <form class="f rv" id="form" novalidate>
+        <label for="f-name"><span data-i18n="f_name">Name</span><input id="f-name" name="name" autocomplete="name" placeholder="Sara Khan"></label>
+        <label for="f-email"><span data-i18n="f_email">Email</span><input id="f-email" name="email" type="email" autocomplete="email" placeholder="sara@company.com"></label>
+        <label class="full" for="f-msg"><span data-i18n="f_msg">Project details</span><textarea id="f-msg" name="message"></textarea></label>
+        <div class="act">
+          <p class="msg" id="formMsg" role="status"></p>
+          <button class="btn solid magnetic" type="submit"><span data-i18n="send">Send message</span><span class="arr">→</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer">© 2026 Your Name. Built by hand.</span>
+    <span class="mono" style="font-size:11px">Three.js · WebGL</span>
+    <button type="button" data-go="intro" data-i18n="top">Back to top</button>
+  </div>
+</footer>
+
+<div class="bl-layer" id="blLayer" aria-hidden="true"><div class="bl-ruler t"></div><div class="bl-ruler l"></div></div>
+<div class="bbar" id="bbar" role="region" aria-label="Page build">
+  <span class="dots" id="bDots"></span>
+  <span class="ag"><b id="bAg">6</b> <span data-i18n="b_agents">agents</span></span>
+  <span class="sep"></span>
+  <span><b id="bDone">0</b> / <span id="bTot">0</span> <span data-i18n="b_pieces">pieces</span></span>
+  <span class="pb"><b id="bProg"></b></span>
+  <span class="st" id="bSt" aria-live="polite"></span>
+  <button type="button" id="bSpd" aria-label="Build speed">1x</button>
+  <button type="button" id="bX" aria-label="Skip the build">✕</button>
+</div>
+
+<nav class="dock" id="dock" aria-label="Sections">
+  <div class="wrapb" id="dockBtns">
+    <span class="pill" id="pill"></span>
+    <button type="button" data-go="intro" data-i18n="nav_intro">Intro</button>
+    <button type="button" data-go="process" data-i18n="nav_process">Process</button>
+    <button type="button" data-go="work" data-i18n="nav_work">Work</button>
+    <button type="button" data-go="services" data-i18n="nav_services">Services</button>
+    <button type="button" data-go="about" data-i18n="nav_about">About</button>
+    <button type="button" data-go="contact" data-i18n="nav_contact">Contact</button>
+  </div>
+  <span class="stat"><i></i><span id="dockStat">00 / 05</span></span>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" crossorigin="anonymous"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/translations.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../js/scroll.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/dial.js"></script>
+<script src="../js/elements.js"></script>
+<script src="../js/webgl.js"></script>
+<script src="../js/swarm.js"></script>
+<script src="../js/loop.js"></script>
+<script src="overrides.js"></script>
+<script src="../js/boot.js"></script>
+
+</body></html>
